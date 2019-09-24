@@ -55,7 +55,7 @@ mysqli_close($conn);
    	<p id='JS_demo2'>Time now: </p>
    	<p id='JS_demo_diff'>Elapsed time: </p>
 	   
-<!--Javascript funkcija atsinaujinanti kas sekundę. Sulygina javacript duotą formatą su SQL timestamp-->
+<!--Javascript funkcija atsinaujinanti kas sekundę. Rodo, kiek laiko įvesta užklausa yra aktyvi. Sulygina javacript duotą laiko formatą su SQL timestamp-->
       <script>  
 
       	var x = setInterval(function(){
