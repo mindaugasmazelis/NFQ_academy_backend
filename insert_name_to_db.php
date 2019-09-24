@@ -8,8 +8,10 @@ $DBname = "my_test_db";
 $conn = mysqli_connect($servername, $username, 
 	$password, $DBname);
 
+// Vartotojo input valymas nuo netyčinės SQL injekcijos
 $entered_name = mysqli_real_escape_string($conn, $_REQUEST['customer_name']);
 
+// tikrinamas ryšys su DB 
 if ($conn){
 	echo "Connected successfully <br>";
 }
@@ -19,6 +21,7 @@ else {
 
 echo 'Entered_name: '.$entered_name."<br>";
 
+// Query priskiria 6 skaitenų int, kuris būtų pateikiamas vartotojui kaip "reference number"
 $query = "INSERT INTO customer_list (customer_name,reference_number) VALUES ('$entered_name',FLOOR(RAND()*1000000)+1)";
 
 if (mysqli_query($conn,$query)) {
@@ -40,9 +43,6 @@ echo 'Registration time: '.$reg_time."<br>";
 echo 'Reference number: '.$ref_num."<br><br>";
 
 
-// 
-// 
-
 mysqli_close($conn);
 ?>
 
@@ -54,6 +54,8 @@ mysqli_close($conn);
    <body>
    	<p id='JS_demo2'>Time now: </p>
    	<p id='JS_demo_diff'>Elapsed time: </p>
+	   
+<!--Javascript funkcija atsinaujinanti kas sekundę. Sulygina javacript duotą formatą su SQL timestamp-->
       <script>  
 
       	var x = setInterval(function(){
@@ -84,6 +86,8 @@ mysqli_close($conn);
 
     },1000)
       </script>
+	   
+<!--Paprastas HTML mygtukas grįžti į ankstesnį puslapį-->
       <form method='GET' action="input_screen.php">
       <button type="submit">Enter another record</button>
       </form>
