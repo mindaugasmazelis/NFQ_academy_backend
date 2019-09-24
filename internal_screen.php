@@ -6,6 +6,7 @@ $database = "my_test_db";
 
 $connection = new mysqli($url,$username,$password,$database);
 
+// tikrinamas prisijungimas prie DB
 if ($connection->connect_error) {
 	echo "connection error: ".$connection->connect_error;
 }
