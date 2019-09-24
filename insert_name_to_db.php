@@ -21,9 +21,6 @@ echo 'Entered_name: '.$entered_name."<br>";
 
 $query = "INSERT INTO customer_list (customer_name,reference_number) VALUES ('$entered_name',FLOOR(RAND()*1000000)+1)";
 
-
-// $query = '';
-
 if (mysqli_query($conn,$query)) {
 	echo "Payload delivered successfully: <br>   ".$query."<br><br>";
 	$last_id = mysqli_insert_id($conn);
@@ -33,8 +30,6 @@ else {
 	echo "There was an error <br>".mysqli_error($conn)."<br>";
 }
 
-// 
-// 
 $query = "SELECT * FROM customer_list where id = '$last_id';";
 
 $result = mysqli_query($conn,$query);
