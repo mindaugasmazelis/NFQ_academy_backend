@@ -1,1 +1,1 @@
-﻿Barely working PHP website back-end project for NFQ academy.
+﻿ PHP website back-end project for NFQ academy.
